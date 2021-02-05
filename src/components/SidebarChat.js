@@ -2,13 +2,16 @@ import { Avatar } from "@material-ui/core";
 import React from "react";
 import "./SidebarChat.css";
 import avatar from "../avatar.png"
+import db from "../firebase";
 
 function SidebarChat({ id, name, addNewChart }) {
-  const createChat = () => {
-    const roomName = prompt("Please Enter Name For The Chat");
+  const createChatRoom = () => {
+    const roomName = prompt("Please Enter Name For The Chat Room");
 
     if (roomName) {
-      // do this
+        db.collection('rooms').add({
+          name:roomName,
+      })
     }
   };
 
@@ -21,7 +24,7 @@ function SidebarChat({ id, name, addNewChart }) {
       </div>
     </div>
   ) : (
-    <div onClick={createChat} className="sidebarChat">
+    <div onClick={createChatRoom} className="sidebarChat">
       <h2>Add New Chat</h2>
     </div>
   );
