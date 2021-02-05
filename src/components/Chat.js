@@ -8,21 +8,34 @@ import {
   MoreVert,
   SearchOutlined,
 } from "@material-ui/icons";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import db from "../firebase";
+import avatar from "../avatar.png"
 
 function Chat() {
   const [input, setInput] = useState("");
-
+  const { id } = useParams();
+  const [roomName, setRoomName] = useState("");
+  useEffect(() => {
+    if (id) {
+      db.collection("rooms")
+        .doc(id)
+        .onSnapshot((snapshot) => setRoomName(snapshot.data().name));
+    }
+  }, [id]);
+    //console.log(`this is room ${roomName} and id ${id}`);
   const sendMessage = () => {
     //e.preventDefault();
-      setInput("");
+    setInput("");
   };
 
   return (
     <div className="chat">
       <div className="chat__header">
-        <Avatar />
+      <Avatar src={ avatar} />
         <div className="chat__headerInfo">
-          <h3>Room name</h3>
+                  <h3>{roomName}</h3>
           <p>Last Seen At ....</p>
         </div>
 

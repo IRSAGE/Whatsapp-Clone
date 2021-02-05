@@ -3,6 +3,7 @@ import React from "react";
 import "./SidebarChat.css";
 import avatar from "../avatar.png"
 import db from "../firebase";
+import { Link } from "react-router-dom";
 
 function SidebarChat({ id, name, addNewChart }) {
   const createChatRoom = () => {
@@ -15,14 +16,17 @@ function SidebarChat({ id, name, addNewChart }) {
     }
   };
 
-  return !addNewChart ? (
-    <div className="sidebarChat">
+    return !addNewChart ? (
+      <Link to={`/rooms/${id}`}>
+          <div className="sidebarChat">
           <Avatar src={ avatar} />
       <div className="sidebarChat__info">
         <h2>{name}</h2>
         <p>This Is The Last Message</p>
       </div>
-    </div>
+    </div>  
+      </Link>
+    
   ) : (
     <div onClick={createChatRoom} className="sidebarChat">
       <h2>Add New Chat</h2>
