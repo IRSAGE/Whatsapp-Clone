@@ -1,11 +1,15 @@
 
 import './App.css';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
     //BEM Maming Convestion
     <div className="app">
-      <h1>Lets start</h1>
+     
+      <div className="app__body">
+        <Sidebar />
+      </div>
     </div>
   );
 }
