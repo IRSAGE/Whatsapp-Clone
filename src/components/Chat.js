@@ -2,13 +2,12 @@ import React from "react";
 import "./Chat.css";
 import { Avatar, IconButton } from "@material-ui/core";
 import {
-    AttachFile,
-    InsertEmoticon,
-    Mic,
-    MoreVert,
-    SearchOutlined,
+  AttachFile,
+  InsertEmoticon,
+  Mic,
+  MoreVert,
+  SearchOutlined,
 } from "@material-ui/icons";
-  
 
 function Chat() {
   return (
@@ -33,7 +32,18 @@ function Chat() {
         </div>
       </div>
 
-      <div className="chat__body"></div>
+          <div className="chat__body">
+          <p className="chat__message  chat__reciever">
+            <span className="chat__name">IR~Sage</span>
+           Chat Message
+            <span className="chat__timestamp">timestamp</span>
+              </p>
+              <p className="chat__message">
+            <span className="chat__name">IR~Sage</span>
+           Chat Message
+            <span className="chat__timestamp">timestamp</span>
+          </p>
+      </div>
 
       <div className="chat__footer"></div>
     </div>
