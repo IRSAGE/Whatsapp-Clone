@@ -14,6 +14,7 @@ function Chat() {
 
   const sendMessage = () => {
     //e.preventDefault();
+      setInput("");
   };
 
   return (
